@@ -1,141 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ResQFood</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-
-background:
-linear-gradient(135deg,#006633,#00994d);
-
-color:white;
-
-overflow-x:hidden;
-
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f7f5;
 }
 
-.hero{
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:20px;
-
+header{
+    background:linear-gradient(135deg,#0c5b35,#1f8a57);
+    color:white;
+    padding:50px;
+    text-align:center;
 }
 
-.logo{
-
-font-size:70px;
-font-weight:bold;
-margin-bottom:20px;
-
+header h1{
+    margin:0;
+    font-size:3rem;
 }
 
-.hero h2{
-
-font-size:30px;
-
-max-width:900px;
-
-margin-bottom:40px;
-
+header p{
+    font-size:1.2rem;
 }
 
-.btn{
-
-padding:15px 35px;
-
-border-radius:30px;
-
-background:#ff7b00;
-
-color:white;
-
-font-size:18px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-transition:.3s;
-
+.section-title{
+    text-align:center;
+    margin:40px 0;
+    color:#0c5b35;
 }
 
-.btn:hover{
+.carousel-container{
 
-transform:scale(1.1);
+    width:90%;
+    max-width:1100px;
 
-}
+    height:650px;
 
-.section{
+    margin:auto;
 
-padding:50px 20px;
-text-align:center;
+    position:relative;
 
-}
+    overflow:hidden;
 
-.slider-container{
+    border-radius:20px;
 
-position:relative;
+    background:white;
 
-width:90%;
-
-max-width:1200px;
-
-margin:auto;
+    box-shadow:0px 5px 20px rgba(0,0,0,.15);
 
 }
 
 .slide{
 
-display:none;
+    width:100%;
+    height:100%;
 
-animation:fade .5s;
+    display:none;
+
+}
+
+.slide.active{
+
+    display:block;
 
 }
 
 .slide img{
 
-width:100%;
+    width:100%;
+    height:100%;
 
-border-radius:20px;
+    object-fit:contain;
 
-box-shadow:
-
-0 10px 40px rgba(0,0,0,.5);
-
-}
-
-.active{
-
-display:block;
+    object-position:top center;
 
 }
 
-.prev,.next{
+
+/* Botones */
+
+.arrow{
 
 position:absolute;
 
@@ -143,87 +94,114 @@ top:50%;
 
 transform:translateY(-50%);
 
-font-size:40px;
+background:rgba(0,0,0,.6);
+
+color:white;
+
+border:none;
+
+font-size:30px;
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
 
 cursor:pointer;
 
-padding:20px;
+z-index:100;
 
-background:rgba(0,0,0,.4);
+}
 
-border-radius:50%;
+.arrow:hover{
+
+background:#0c5b35;
 
 }
 
 .prev{
 
-left:-60px;
+left:20px;
 
 }
 
 .next{
 
-right:-60px;
+right:20px;
 
 }
 
-@keyframes fade{
 
-from{
+/* Indicadores */
 
-opacity:0;
+.indicators{
 
-transform:scale(.95);
+display:flex;
 
-}
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-.counter{
+justify-content:center;
 
 margin-top:20px;
 
-font-size:20px;
+gap:8px;
 
 }
 
+.dot{
+
+width:12px;
+
+height:12px;
+
+border-radius:50%;
+
+background:#ccc;
+
+cursor:pointer;
+
+}
+
+.dot.active{
+
+background:#0c5b35;
+
+}
+
+
 footer{
 
-margin-top:80px;
+margin-top:40px;
 
-padding:30px;
+padding:20px;
 
-background:#003d1f;
+background:#0c5b35;
+
+color:white;
 
 text-align:center;
 
 }
 
+
 @media(max-width:768px){
 
-.prev{
+.carousel-container{
 
-left:5px;
-
-}
-
-.next{
-
-right:5px;
+height:400px;
 
 }
 
-.logo{
+header h1{
 
-font-size:50px;
+font-size:2rem;
+
+}
+
+.arrow{
+
+width:40px;
+height:40px;
+font-size:20px;
 
 }
 
@@ -235,135 +213,199 @@ font-size:50px;
 
 <body>
 
-<section class="hero">
+<header>
 
-<div class="logo">
+<h1>ResQFood</h1>
 
-ResQFood
+<p>
+Donde cada alimento cuenta, cada persona importa
+</p>
 
-</div>
+</header>
 
-<h2>
+<h2 class="section-title">
 
-Transformamos excedentes alimentarios
-en oportunidades reales para quienes
-más lo necesitan.
+Reporte e impacto del proyecto
 
 </h2>
 
-<a href="#proyecto" class="btn">
 
-Explorar Proyecto
+<div class="carousel-container">
 
-</a>
+<button class="arrow prev">&#10094;</button>
 
-</section>
+<button class="arrow next">&#10095;</button>
 
-<section id="proyecto" class="section">
 
-<h1>
-
-Reporte de Impacto y Proyecto
-
-</h1>
-
-<br><br>
-
-<div class="slider-container">
-
-<div class="slide active"><img src="images/1.png"></div>
-<div class="slide"><img src="images/2.png"></div>
-<div class="slide"><img src="images/3.png"></div>
-<div class="slide"><img src="images/4.png"></div>
-<div class="slide"><img src="images/5.png"></div>
-<div class="slide"><img src="images/6.png"></div>
-<div class="slide"><img src="images/7.png"></div>
-<div class="slide"><img src="images/8.png"></div>
-<div class="slide"><img src="images/9.png"></div>
-<div class="slide"><img src="images/10.png"></div>
-<div class="slide"><img src="images/11.png"></div>
-<div class="slide"><img src="images/12.png"></div>
-<div class="slide"><img src="images/13.png"></div>
-<div class="slide"><img src="images/14.png"></div>
-<div class="slide"><img src="images/15.png"></div>
-<div class="slide"><img src="images/16.png"></div>
-<div class="slide"><img src="images/17.png"></div>
-<div class="slide"><img src="images/18.png"></div>
-<div class="slide"><img src="images/19.png"></div>
-<div class="slide"><img src="images/20.png"></div>
-
-<div class="prev" onclick="changeSlide(-1)">
-❮
+<div class="slide active">
+<img src="imagenes/img1.png">
 </div>
 
-<div class="next" onclick="changeSlide(1)">
-❯
+<div class="slide">
+<img src="imagenes/img2.png">
 </div>
 
-<div class="counter">
+<div class="slide">
+<img src="imagenes/img3.png">
+</div>
 
-<span id="current">
+<div class="slide">
+<img src="imagenes/img4.png">
+</div>
 
-1
+<div class="slide">
+<img src="imagenes/img5.png">
+</div>
 
-</span>
+<div class="slide">
+<img src="imagenes/img6.png">
+</div>
 
-/
+<div class="slide">
+<img src="imagenes/img7.png">
+</div>
 
-20
+<div class="slide">
+<img src="imagenes/img8.png">
+</div>
 
+<div class="slide">
+<img src="imagenes/img9.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img10.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img11.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img12.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img13.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img14.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img15.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img16.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img17.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img18.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img19.png">
+</div>
+
+<div class="slide">
+<img src="imagenes/img20.png">
 </div>
 
 </div>
 
-</section>
+<div class="indicators"></div>
 
 <footer>
 
-ResQFood © 2026
+© 2026 ResQFood | Tecnología con impacto social
 
 </footer>
 
+
 <script>
 
-let slides=
-document.querySelectorAll(".slide");
+const slides=document.querySelectorAll(".slide");
+
+const indicators=document.querySelector(".indicators");
 
 let current=0;
 
-function showSlide(n){
 
-slides[current]
-.classList.remove("active");
+slides.forEach((slide,index)=>{
 
-current=
-(current+n+slides.length)
-%slides.length;
+let dot=document.createElement("div");
 
-slides[current]
-.classList.add("active");
+dot.classList.add("dot");
 
-document
-.getElementById(
-"current"
-).innerText=current+1;
+if(index===0){
+
+dot.classList.add("active");
 
 }
 
-function changeSlide(n){
+dot.onclick=()=>showSlide(index);
 
-showSlide(n);
+indicators.appendChild(dot);
+
+});
+
+
+const dots=document.querySelectorAll(".dot");
+
+
+function showSlide(index){
+
+slides[current].classList.remove("active");
+
+dots[current].classList.remove("active");
+
+current=index;
+
+slides[current].classList.add("active");
+
+dots[current].classList.add("active");
 
 }
 
-setInterval(()=>{
 
-showSlide(1);
+document.querySelector(".next")
+.addEventListener("click",()=>{
 
-},5000);
+let next=current+1;
+
+if(next>=slides.length){
+
+next=0;
+
+}
+
+showSlide(next);
+
+});
+
+
+document.querySelector(".prev")
+.addEventListener("click",()=>{
+
+let prev=current-1;
+
+if(prev<0){
+
+prev=slides.length-1;
+
+}
+
+showSlide(prev);
+
+});
 
 </script>
 
 </body>
-
 </html>
