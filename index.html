@@ -4,19 +4,27 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>ResQFood</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
 
-margin:0;
-font-family:Arial,sans-serif;
-background:#f6f6f6;
-scroll-behavior:smooth;
+background:
+linear-gradient(135deg,#006633,#00994d);
+
+color:white;
+
+overflow-x:hidden;
 
 }
 
@@ -25,6 +33,7 @@ scroll-behavior:smooth;
 height:100vh;
 
 display:flex;
+
 flex-direction:column;
 
 justify-content:center;
@@ -33,100 +42,190 @@ align-items:center;
 
 text-align:center;
 
-background:linear-gradient(
-135deg,
-#006633,
-#00a651
-);
-
-color:white;
-
 padding:20px;
 
 }
 
-.hero h1{
+.logo{
 
-font-size:60px;
-margin:0;
-
-}
-
-.hero p{
-
-font-size:24px;
-
-max-width:800px;
+font-size:70px;
+font-weight:bold;
+margin-bottom:20px;
 
 }
 
-.button{
+.hero h2{
 
-margin-top:30px;
+font-size:30px;
+
+max-width:900px;
+
+margin-bottom:40px;
+
+}
+
+.btn{
 
 padding:15px 35px;
 
-background:#ff7a00;
+border-radius:30px;
 
-border-radius:10px;
-
-text-decoration:none;
+background:#ff7b00;
 
 color:white;
 
-font-size:20px;
+font-size:18px;
+
+text-decoration:none;
 
 font-weight:bold;
-
-}
-
-.section{
-
-padding:40px;
-
-}
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(500px,1fr));
-
-gap:25px;
-
-}
-
-.gallery img{
-
-width:100%;
-
-border-radius:15px;
-
-box-shadow:
-0 5px 15px rgba(0,0,0,.2);
 
 transition:.3s;
 
 }
 
-.gallery img:hover{
+.btn:hover{
 
-transform:scale(1.02);
+transform:scale(1.1);
+
+}
+
+.section{
+
+padding:50px 20px;
+text-align:center;
+
+}
+
+.slider-container{
+
+position:relative;
+
+width:90%;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.slide{
+
+display:none;
+
+animation:fade .5s;
+
+}
+
+.slide img{
+
+width:100%;
+
+border-radius:20px;
+
+box-shadow:
+
+0 10px 40px rgba(0,0,0,.5);
+
+}
+
+.active{
+
+display:block;
+
+}
+
+.prev,.next{
+
+position:absolute;
+
+top:50%;
+
+transform:translateY(-50%);
+
+font-size:40px;
+
+cursor:pointer;
+
+padding:20px;
+
+background:rgba(0,0,0,.4);
+
+border-radius:50%;
+
+}
+
+.prev{
+
+left:-60px;
+
+}
+
+.next{
+
+right:-60px;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:scale(.95);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+.counter{
+
+margin-top:20px;
+
+font-size:20px;
 
 }
 
 footer{
 
-background:#006633;
+margin-top:80px;
 
 padding:30px;
 
+background:#003d1f;
+
 text-align:center;
 
-color:white;
+}
 
-margin-top:40px;
+@media(max-width:768px){
+
+.prev{
+
+left:5px;
+
+}
+
+.next{
+
+right:5px;
+
+}
+
+.logo{
+
+font-size:50px;
+
+}
 
 }
 
@@ -138,28 +237,29 @@ margin-top:40px;
 
 <section class="hero">
 
-<h1>ResQFood</h1>
+<div class="logo">
 
-<p>
+ResQFood
 
-Conectamos excedentes alimentarios
-con quienes más lo necesitan.
+</div>
 
-</p>
+<h2>
 
-<a
-href="#presentacion"
-class="button">
+Transformamos excedentes alimentarios
+en oportunidades reales para quienes
+más lo necesitan.
 
-Ver Proyecto
+</h2>
+
+<a href="#proyecto" class="btn">
+
+Explorar Proyecto
 
 </a>
 
 </section>
 
-<section
-id="presentacion"
-class="section">
+<section id="proyecto" class="section">
 
 <h1>
 
@@ -167,28 +267,52 @@ Reporte de Impacto y Proyecto
 
 </h1>
 
-<div class="gallery">
+<br><br>
 
-<img src="images/1.png">
-<img src="images/2.png">
-<img src="images/3.png">
-<img src="images/4.png">
-<img src="images/5.png">
-<img src="images/6.png">
-<img src="images/7.png">
-<img src="images/8.png">
-<img src="images/9.png">
-<img src="images/10.png">
-<img src="images/11.png">
-<img src="images/12.png">
-<img src="images/13.png">
-<img src="images/14.png">
-<img src="images/15.png">
-<img src="images/16.png">
-<img src="images/17.png">
-<img src="images/18.png">
-<img src="images/19.png">
-<img src="images/20.png">
+<div class="slider-container">
+
+<div class="slide active"><img src="images/1.png"></div>
+<div class="slide"><img src="images/2.png"></div>
+<div class="slide"><img src="images/3.png"></div>
+<div class="slide"><img src="images/4.png"></div>
+<div class="slide"><img src="images/5.png"></div>
+<div class="slide"><img src="images/6.png"></div>
+<div class="slide"><img src="images/7.png"></div>
+<div class="slide"><img src="images/8.png"></div>
+<div class="slide"><img src="images/9.png"></div>
+<div class="slide"><img src="images/10.png"></div>
+<div class="slide"><img src="images/11.png"></div>
+<div class="slide"><img src="images/12.png"></div>
+<div class="slide"><img src="images/13.png"></div>
+<div class="slide"><img src="images/14.png"></div>
+<div class="slide"><img src="images/15.png"></div>
+<div class="slide"><img src="images/16.png"></div>
+<div class="slide"><img src="images/17.png"></div>
+<div class="slide"><img src="images/18.png"></div>
+<div class="slide"><img src="images/19.png"></div>
+<div class="slide"><img src="images/20.png"></div>
+
+<div class="prev" onclick="changeSlide(-1)">
+❮
+</div>
+
+<div class="next" onclick="changeSlide(1)">
+❯
+</div>
+
+<div class="counter">
+
+<span id="current">
+
+1
+
+</span>
+
+/
+
+20
+
+</div>
 
 </div>
 
@@ -200,5 +324,46 @@ ResQFood © 2026
 
 </footer>
 
+<script>
+
+let slides=
+document.querySelectorAll(".slide");
+
+let current=0;
+
+function showSlide(n){
+
+slides[current]
+.classList.remove("active");
+
+current=
+(current+n+slides.length)
+%slides.length;
+
+slides[current]
+.classList.add("active");
+
+document
+.getElementById(
+"current"
+).innerText=current+1;
+
+}
+
+function changeSlide(n){
+
+showSlide(n);
+
+}
+
+setInterval(()=>{
+
+showSlide(1);
+
+},5000);
+
+</script>
+
 </body>
+
 </html>
